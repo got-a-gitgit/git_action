@@ -1,0 +1,21 @@
+package com.example.demo.src.store.model;
+
+import lombok.AllArgsConstructor;
+import lombok.Getter;
+import lombok.Setter;
+
+import javax.validation.constraints.NotBlank;
+import javax.validation.constraints.Pattern;
+import javax.validation.constraints.Size;
+
+@Setter
+@Getter
+@AllArgsConstructor
+public class PostStoreNameReq {
+    private int flag;
+
+    @Size(min = 2, max = 10, message = "상점명은 최소 2자, 최대 10자까지 입력 가능합니다.")
+    @Pattern(regexp="^[가-힣a-zA-Z0-9]*$", message = "상점명은 띄어쓰기 없이 한글, 영문, 숫자만 가능합니다.")
+    @NotBlank(message = "상점명을 입력하세요.")
+    private String name;
+}
